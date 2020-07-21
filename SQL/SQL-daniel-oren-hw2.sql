@@ -168,8 +168,6 @@ SELECT DISTINCT students.StudentId AS Student_ID
 	,students.FirstName AS Students_first_name
 	,students.LastName AS Students_last_name
 	,courses.DepartmentID AS Department_ID
-	--,classrooms.CourseId
-	--,cast (classrooms.degree as decimal (10, 1)) as Grade_by_course_ID
 	,cast(AVG(classrooms.degree) OVER (
 			PARTITION BY students.StudentId
 			,courses.DepartmentID
